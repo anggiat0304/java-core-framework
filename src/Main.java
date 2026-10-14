@@ -6,14 +6,29 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        People people1 = new People("Anggiat Pangaribuan",25, "M",164);
-        People people2 = new People("Anggiat Simanjuntak",25, "M",164);
-        People people3 = new People("Anggiat Lu",25, "M",164);
+//        People people1 = new People("Anggiat Pangaribuan",25, "M",164);
+//        People people2 = new People("Anggiat Simanjuntak",25, "M",164);
+//        People people3 = new People("Anggiat Lu",25, "M",164);
+//
+//        List<People> peoples = Arrays.asList(people1, people2, people3);
+//        for (People people : peoples) {
+//            System.out.println(people.getId() + " " + people.getName() + " " + people.getAge());
+//        }
 
-        List<People> peoples = Arrays.asList(people1, people2, people3);
-        for (People people : peoples) {
-            System.out.println(people.getId() + " " + people.getName() + " " + people.getAge());
-        }
+        Thread threadA = new Thread(()->{
+            for (int i = 0;i<=5 ; i++){
+                System.out.println("A :" + i);
+            }
+        });
 
+        Thread threadB = new Thread(()->{
+            for (int i = 0;i<=5 ; i++){
+                System.out.println("B :" + i);
+            }
+        });
+        threadA.start();
+        threadB.start();
+        System.out.println("C");
     }
+
 }
